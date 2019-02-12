@@ -32,6 +32,7 @@ def webhook():
     weather=json_object['list']
     for i in range(0,30):
         if date in weather[i]['dt_txt']:
+            print ("Date matching with API", +weather[i]['dt_txt'])
             condition= weather[i]['weather'][0]['description']
             break
 
