@@ -39,7 +39,7 @@ def webhook():
     speech = " The forecast for "+city+ "for " +date+" is " +condition
     return {
          "speech": speech,
-         "displayText": speech,
+         "fulfillmentText": speech,
          "source": "apiai-weather-webhook"
     }
 
