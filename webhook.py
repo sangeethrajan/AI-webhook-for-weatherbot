@@ -32,7 +32,7 @@ def webhook():
     weather=json_object['list']
     for i in range(0,30):
         if date in weather[i]['dt_txt']:
-            print ("Date matching with API", +weather[i]['dt_txt'])
+            #print ("Date matching with API", +weather[i]['dt_txt'])
             condition= weather[i]['weather'][0]['description']
             break
 
@@ -45,6 +45,6 @@ def webhook():
 
 if __name__ == '__main__':
      port = int(os.getenv('PORT', 5000))
-     #print("Starting app on port %d", % port)
+     print("Starting app on port %d" % port)
      app.run(debug=False, port=port, host='0.0.0.0')
 
