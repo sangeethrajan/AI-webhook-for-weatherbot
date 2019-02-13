@@ -1,6 +1,7 @@
 import json
 import os
 import requests
+import datetime
 
 
 from flask import Flask
@@ -34,6 +35,10 @@ def makeResponseone(req):
   parameters = result.get("parameters")
   city= parameters.get("geo-city")
   date= parameters.get("date")
+
+  da=date.strftime(%Y-%m-%d)
+  print (da)
+
   r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
   json_object = r.json()
   weather=json_object['list']
@@ -41,7 +46,7 @@ def makeResponseone(req):
   condition ="sunny"
   for i in range(0,30):
     #print (weather[i]['dt_txt'])
-    print (date)
+    #print (date)
     if date in weather[i]['dt_txt']:
        condition= weather[i]['weather'][0]['description']
        print (condition)
