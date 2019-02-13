@@ -38,9 +38,9 @@ def webhook():
 
     speech = " The forecast for "+city+ "for " +date+" is " +condition
     return {
-         "speech": speech,
+         "text": speech,
          "fulfillmentText": speech,
-         "source": "apiai-weather-webhook"
+         "source": "Dialogflow-weather-webhook"
     }
 
 if __name__ == '__main__':
