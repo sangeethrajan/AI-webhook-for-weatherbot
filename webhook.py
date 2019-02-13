@@ -38,11 +38,11 @@ def makeResponseone(req):
   date= parameters.get("date")
   
   #2019-02-14T12:00:00-05:00
-  #datetime_object = datetime.strptime(date, '%Y-%m %d %I:%M%p')
+  datetimedialog_object = datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ')
+  print (datetimedialog_object.date())
 
-
-  da=date.strftime("%m/%d/%Y, %H:%M:%S")
-  print (da)
+  #da=date.strftime("%m/%d/%Y, %H:%M:%S")
+  #print (da)
 
   r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
   json_object = r.json()
@@ -52,7 +52,11 @@ def makeResponseone(req):
   for i in range(0,30):
     #print (weather[i]['dt_txt'])
     #print (date)
-    if date in weather[i]['dt_txt']:
+    #2019-02-14 00:00:00
+    datetimeweather_object = datetime.strptime(weather[i]['dt_txt'], '%Y-%m-%d %H:%M:%S')
+    print (datetimeweather_object.date())
+    #if date in weather[i]['dt_txt']:
+    if datetimedialog_object.date() == datetimeweather_object.date():
        condition= weather[i]['weather'][0]['description']
        print (condition)
        print (date)
