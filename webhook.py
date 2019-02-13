@@ -40,13 +40,13 @@ def makeResponseone(req):
   #print(json.dumps(weather, indent =4))
   condition ="sunny"
   for i in range(0,30):
-    #print (+weather[i]['dt_txt'])
+    print (weather[i]['dt_txt'])
     if date in weather[i]['dt_txt']:
        condition= weather[i]['weather'][0]['description']
        print (condition)
        print (date)
        break
-  
+
 
   resp = "The forecast in "+city+" for "+date+" is " +condition
 
