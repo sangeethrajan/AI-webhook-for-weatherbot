@@ -27,14 +27,14 @@ def makeResponseone(req):
   parameters = result.get("parameters")
   city= parameters.get("geo-city")
   date= parameters.get("date")
-  r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=london&appid=d3720b72a53ba44d5740632909d372a1')    
+  r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
   json_object = r.json()
   weather=json_object['list']
-  condition ="sunny"
+  #condition ="sunny"
   for i in range(0,30):
     if date in weather[i]['dt_txt']:
         condition= weather[i]['weather'][0]['description']
-    break
+        break
   resp = " The forecast for "+city+ "for " +date+" is " +condition
 
   return {
