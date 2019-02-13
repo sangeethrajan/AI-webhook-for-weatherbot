@@ -43,8 +43,8 @@ def makeResponseone(req):
     #print (+weather[i]['dt_txt'])
     if date in weather[i]['dt_txt']:
        condition= weather[i]['weather'][0]['description']
-       print (condition)
-       print (date)
+       #print (condition)
+       #print (date)
        break
   resp = "The forecast in "+city+" for "+date+" is Sunny"
 
