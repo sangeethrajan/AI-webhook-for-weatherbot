@@ -36,7 +36,7 @@ def makeResponseone(req):
   city= parameters.get("geo-city")
   date= parameters.get("date")
 
-  da=date.strftime(%Y-%m-%d)
+  da=date.strftime(%y-%m-%d)
   print (da)
 
   r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
