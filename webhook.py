@@ -39,7 +39,7 @@ def makeResponseone(req):
 
   return {
       "fulfillmentText": resp,
-      "text": speech
+      "text": resp
          #"source": "Dialogflow-weather-webhook"
     }
 
