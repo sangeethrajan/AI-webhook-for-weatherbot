@@ -14,37 +14,37 @@ app = Flask(__name__)
 def webhook():
   req = request.get_json(silent=True, force=True)
   print(json.dumps(req, indent=4))
-
-
-
-  def makeResponseone(req):
-    result = req.get("queryResult")
-    parameters = result.get("parameters")
-    city= parameters.get("geo-city")
-    date= parameters.get("date")
-    r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=london&appid=d3720b72a53ba44d5740632909d372a1')    
-    json_object = r.json()
-    weather=json_object['list']
-    for i in range(0,30):
-        if date in weather[i]['dt_txt']:
-            condition= weather[i]['weather'][0]['description']
-        break
-    resp = " The forecast for "+city+ "for " +date+" is " +condition
-
-    return {
-        "fulfillmentText": resp
-        "text": speech,
-         #"source": "Dialogflow-weather-webhook"
-    }
-
-
-
+  
   res = makeResponseone(req)
   res = json.dumps(res, indent=4)
   print(res)
   r = make_response(res)
   r.headers['Content-Type'] = 'application/json'
   return r
+
+def makeResponseone(req):
+  result = req.get("queryResult")
+  parameters = result.get("parameters")
+  city= parameters.get("geo-city")
+  date= parameters.get("date")
+  r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=london&appid=d3720b72a53ba44d5740632909d372a1')    
+  json_object = r.json()
+  weather=json_object['list']
+  for i in range(0,30):
+    if date in weather[i]['dt_txt']:
+        condition= weather[i]['weather'][0]['description']
+    break
+  resp = " The forecast for "+city+ "for " +date+" is " +condition
+
+  return {
+      "fulfillmentText": resp,
+      "text": speech
+         #"source": "Dialogflow-weather-webhook"
+    }
+
+
+
+
 
 if __name__ == '__main__':
      port = int(os.getenv('PORT', 5000))
