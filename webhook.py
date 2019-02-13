@@ -36,7 +36,7 @@ def webhook():
         break
     resp = " The forecast for "+city+ "for " +date+" is " +condition
     return {
-         "fulfillmentText": resp,
+         "fulfillmentText": resp
          #"text": speech,
          #"source": "Dialogflow-weather-webhook"
     }
