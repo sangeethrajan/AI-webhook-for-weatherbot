@@ -46,7 +46,7 @@ def makeResponseone(req):
        print (condition)
        print (date)
        break
-  resp = " The forecast in "+city+ " for " +date+" is " +condition
+  resp = " The forecast in "+city+" for "+date+" is "+condition
 
   return {
       "fulfillmentText": resp
