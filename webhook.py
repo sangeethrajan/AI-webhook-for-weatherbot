@@ -22,22 +22,22 @@ def webhook():
   return r
 
   def makeResponseone(req):
-    result = req.get("queryResult")
-    parameters = result.get("parameters")
-    city= parameters.get("geo-city")
-    date= parameters.get("date")
-    #r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
-    r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=london&appid=d3720b72a53ba44d5740632909d372a1')    
-    #print (r)
-    json_object = r.json()
-    weather=json_object['list']
-    for i in range(0,30):
-        if date in weather[i]['dt_txt']:
-            #print ("Date matching with API", +weather[i]['dt_txt'])
-            condition= weather[i]['weather'][0]['description']
-            break
+    #result = req.get("queryResult")
+    #parameters = result.get("parameters")
+    #city= parameters.get("geo-city")
+    #date= parameters.get("date")
+    #r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q=london&appid=d3720b72a53ba44d5740632909d372a1')    
+    #json_object = r.json()
+    #weather=json_object['list']
+    #for i in range(0,30):
+    #    if date in weather[i]['dt_txt']:
+            #condition= weather[i]['weather'][0]['description']
+            #break
 
-    resp = " The forecast for "+city+ "for " +date+" is " +condition
+    #resp = " The forecast for "+city+ "for " +date+" is " +condition
+
+    resp = " The forecast for London today is sunny " +condition    
+
     return {
          "fulfillmentText": resp,
          #"text": speech,
