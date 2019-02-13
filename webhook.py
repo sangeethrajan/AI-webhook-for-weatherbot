@@ -38,8 +38,8 @@ def makeResponseone(req):
   resp = " The forecast for "+city+ "for " +date+" is " +condition
 
   return {
-      "fulfillmentText": resp,
-      "text": resp
+      "fulfillmentText": resp
+      #"text": resp
          #"source": "Dialogflow-weather-webhook"
     }
 
