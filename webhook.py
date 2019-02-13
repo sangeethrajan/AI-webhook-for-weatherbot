@@ -22,7 +22,7 @@ def webhook():
   return r
 
   def makeResponseone(req):
-    result = req.get("result")
+    result = req.get("queryResult")
     parameters = result.get("parameters")
     city= parameters.get("geo-city")
     date= parameters.get("date")
