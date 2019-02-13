@@ -34,7 +34,7 @@ def makeResponseone(req):
   for i in range(0,30):
     if date in weather[i]['dt_txt']:
         condition= weather[i]['weather'][0]['description']
-      break
+    break
   resp = " The forecast for "+city+ "for " +date+" is " +condition
 
   return {
