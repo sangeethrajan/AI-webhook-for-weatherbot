@@ -10,6 +10,9 @@ from flask import make_response
 #Flask app should start in global layout
 app = Flask(__name__)
 
+
+
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
   req = request.get_json(silent=True, force=True)
@@ -22,6 +25,10 @@ def webhook():
   r.headers['Content-Type'] = 'application/json'
   return r
 
+
+
+
+
 def makeResponseone(req):
   result = req.get("queryResult")
   parameters = result.get("parameters")
@@ -30,6 +37,7 @@ def makeResponseone(req):
   r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
   json_object = r.json()
   weather=json_object['list']
+  print(json.dumps(weather, indent =4))
   condition ="sunny"
   for i in range(0,30):
     if date in weather[i]['dt_txt']:
