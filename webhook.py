@@ -39,7 +39,7 @@ def makeResponseone(req):
   weather=json_object['list']
   #print(json.dumps(weather, indent =4))
   #condition ="sunny"
-  for i in len(weather):
+  for i in range(0,100):
     #print (+weather[i]['dt_txt'])
     if date in weather[i]['dt_txt']:
        condition= weather[i]['weather'][0]['description']
