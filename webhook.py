@@ -26,7 +26,8 @@ def webhook():
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
     date = parameters.get("date")
-    r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
+    #r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22')
+    r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
     #print (r)
     json_object = r.json()
     weather=json_object['list']
@@ -38,8 +39,8 @@ def webhook():
 
     speech = " The forecast for "+city+ "for " +date+" is " +condition
     return {
-         "text": speech,
          "fulfillmentText": speech,
+         "text": speech,
          "source": "Dialogflow-weather-webhook"
     }
 
