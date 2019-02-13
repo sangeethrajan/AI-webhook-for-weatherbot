@@ -7,6 +7,7 @@ import datetime
 from flask import Flask
 from flask import request
 from flask import make_response
+from datetime import datetime
 
 #Flask app should start in global layout
 app = Flask(__name__)
@@ -35,8 +36,12 @@ def makeResponseone(req):
   parameters = result.get("parameters")
   city= parameters.get("geo-city")
   date= parameters.get("date")
+  
+  #2019-02-14T12:00:00-05:00
+  #datetime_object = datetime.strptime(date, '%Y-%m %d %I:%M%p')
 
-  da=date.strftime(%y-%m-%d)
+
+  da=date.strftime("%m/%d/%Y, %H:%M:%S")
   print (da)
 
   r = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=d3720b72a53ba44d5740632909d372a1')    
