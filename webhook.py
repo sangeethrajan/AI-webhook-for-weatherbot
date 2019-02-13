@@ -38,8 +38,8 @@ def makeResponseone(req):
   date= parameters.get("date")
   
   #2019-02-14T12:00:00-05:00
-  datetimedialog_object = datetime.strptime(date, '%Y-%m-%dT%H:%M%z')
-  print (datetimedialog_object.date())
+  #datetimedialog_object = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S-%H:%M')
+  #print (datetimeweather_object.date())
 
   #da=date.strftime("%m/%d/%Y, %H:%M:%S")
   #print (da)
@@ -53,13 +53,13 @@ def makeResponseone(req):
     #print (weather[i]['dt_txt'])
     #print (date)
     #2019-02-14 00:00:00
-    datetimeweather_object = datetime.strptime(weather[i]['dt_txt'], '%Y-%m-%d %H:%M:%S')
-    print (datetimeweather_object.date())
-    #if date in weather[i]['dt_txt']:
-    if datetimedialog_object.date() == datetimeweather_object.date():
+    #datetimeweather_object = datetime.strptime(weather[i]['dt_txt'], '%Y-%m-%d %H:%M:%S')
+    #print (datetimeweather_object.date())
+    if date in weather[i]['dt_txt']:
+    #if datetimedialog_object.date() == datetimeweather_object.date():
        condition= weather[i]['weather'][0]['description']
-       print (condition)
-       print (date)
+       #print (condition)
+       #print (date)
        break
 
 
