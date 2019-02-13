@@ -15,12 +15,7 @@ def webhook():
   req = request.get_json(silent=True, force=True)
   print(json.dumps(req, indent=4))
 
-  res = makeResponseone(req)
-  res = json.dumps(res, indent=4)
-  print(res)
-  r = make_response(res)
-  r.headers['Content-Type'] = 'application/json'
-  return r
+
 
   def makeResponseone(req):
     result = req.get("queryResult")
@@ -35,11 +30,21 @@ def webhook():
             condition= weather[i]['weather'][0]['description']
         break
     resp = " The forecast for "+city+ "for " +date+" is " +condition
+
     return {
-         "fulfillmentText": resp
-         #"text": speech,
+        "fulfillmentText": resp
+        "text": speech,
          #"source": "Dialogflow-weather-webhook"
     }
+
+
+
+  res = makeResponseone(req)
+  res = json.dumps(res, indent=4)
+  print(res)
+  r = make_response(res)
+  r.headers['Content-Type'] = 'application/json'
+  return r
 
 if __name__ == '__main__':
      port = int(os.getenv('PORT', 5000))
