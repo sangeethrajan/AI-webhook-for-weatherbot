@@ -15,13 +15,13 @@ def webhook():
   req = request.get_json(silent=True, force=True)
   print(json.dumps(req, indent=4))
 
-  res = makeResponse(req)
+  res = makeResponseone(req)
   res = json.dumps(res, indent=4)
   r = make_response(res)
   r.headers['Content-Type'] = 'application/json'
   return r
 
-  def makeResponse(req):
+  def makeResponseone(req):
     result = req.get("result")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
