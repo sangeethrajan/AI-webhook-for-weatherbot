@@ -38,7 +38,7 @@ def makeResponseone(req):
   date= parameters.get("date")
   
   #2019-02-14T12:00:00-05:00
-  datetimedialog_object = datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ')
+  datetimedialog_object = datetime.strptime(date, '%Y-%m-%dT%H:%M:%S%z')
   print (datetimedialog_object.date())
 
   #da=date.strftime("%m/%d/%Y, %H:%M:%S")
